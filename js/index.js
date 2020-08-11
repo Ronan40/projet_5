@@ -2,8 +2,6 @@
 const inner = document.querySelector('.carousel-inner');
 
 
-
-
 request('GET', 'http://localhost:3000/api/cameras', null, function (cameras) {
   cameras.forEach(function (camera, index) {
 
@@ -24,12 +22,14 @@ request('GET', 'http://localhost:3000/api/cameras', null, function (cameras) {
 
     inner.appendChild($carouselItem);
 
-   createCard(camera)
+    createCard(camera)
+
 
 
   });
 
 });
+
 
 function createCard(cam) {
   const $cardContainer = document.createElement('div');
@@ -69,7 +69,13 @@ function createCard(cam) {
   document.getElementById('card-product-container').appendChild($cardContainer);
 
 
-}
+
+  $cardSubcontainer.addEventListener('click', function () {
+
+    localStorage.setItem("openclassroomsp5", cam._id);
+
+    window.location.href = '../html/produit.html';
+  });
 
 
-
+};
