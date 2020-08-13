@@ -46,7 +46,7 @@ request('GET', 'http://localhost:3000/api/cameras/' + ident, null, function (cam
     $quantInput.className = "form-control quantity";
 
     const $paraButton = document.createElement('p');
-    
+
     const $buttonProd = document.createElement('button');
     $buttonProd.className = "btn btn-round btn-danger";
     $buttonProd.type = 'button';
@@ -60,13 +60,13 @@ request('GET', 'http://localhost:3000/api/cameras/' + ident, null, function (cam
     $lenseLab.className = 'lenselab';
 
     const $lenses = document.createElement('select');
-    
-    
+
+
     camera.lenses.forEach(lense => {
         const $option = document.createElement('option');
         $option.value = lense;
         $option.innerText = lense;
-    
+
         $lenses.appendChild($option);
     });
 
@@ -85,23 +85,28 @@ request('GET', 'http://localhost:3000/api/cameras/' + ident, null, function (cam
 
     $colDiv2.appendChild($lenseLab);
     $colDiv2.appendChild($quantiDiv);
-   
+
 
     $lenseLab.appendChild($lenses);
 
     $quantiDiv.appendChild($quantiLab);
     $quantiDiv.appendChild($quantInput);
-   
+
     $colDiv2.appendChild($paraButton);
 
     $paraButton.appendChild($buttonProd);
     $buttonProd.appendChild($iButton);
 
     document.getElementById('panel').appendChild($mainDiv)
+
     
+    $buttonProd.addEventListener('click', function () {
 
-    console.log(camera);
+        const stringOrder = JSON.stringify(camera);
+        localStorage.setItem('newOrder', stringOrder);
 
+        window.location.href = '../html/panier.html';
+    });
 
 });
 
