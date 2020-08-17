@@ -99,14 +99,39 @@ request('GET', 'http://localhost:3000/api/cameras/' + ident, null, function (cam
 
     document.getElementById('panel').appendChild($mainDiv)
 
-    
+
     $buttonProd.addEventListener('click', function () {
 
-        const stringOrder = JSON.stringify(camera);
+        const order = {
+            price: camera.price,
+            name: camera.name,
+            id: camera._id,
+            quantity: parseInt($quantInput.value)
+        };
+
+        let orders = localStorage.getItem("newOrder");
+
+        if (!orders) {
+            orders = [order]
+        } else {
+            orders = JSON.parse(orders)
+            console.log(camera._id);
+            console.log(orders);
+            const index = orders.findIndex(element =>  element.id == camera._id )
+            if (index > -1) {
+                orders[index].quantity += parseInt($quantInput.value)
+
+            } else {
+                orders.push(order)
+            }
+        }
+
+        const stringOrder = JSON.stringify(orders);
         localStorage.setItem('newOrder', stringOrder);
 
         window.location.href = '../html/panier.html';
     });
+
 
 });
 
