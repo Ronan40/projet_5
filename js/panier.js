@@ -1,10 +1,20 @@
-const orderJson = localStorage.getItem('newOrder');
+const orderJson = localStorage.getItem('newOrder'); // On récupere les éléments stockés
 
-const orderParse = orderJson && JSON.parse(orderJson);
+const orderParse = orderJson && JSON.parse(orderJson); // On vérifie si "orderJson" existe, si oui, on le "parse"
+
+const prenom = document.getElementById('first-name');
+const nom = document.getElementById('last-name');
+const ville = document.getElementById('city');
+const adresse = document.getElementById('address');
+const email = document.getElementById('email');
+const submit = document.getElementById('submit');
+
 
 let totaux = 0
 
 orderParse.forEach(function (order) {
+
+    // Ce forEach sert à mettre en place un container qui contiendra chaque produit
 
     const $trContain = document.createElement('tr');
 
@@ -75,6 +85,8 @@ orderParse.forEach(function (order) {
 
     $aButton.addEventListener('click', function () {
 
+        // On fait en sorte que le bouton corbeille supprime le produit correspondant à celui-ci
+
         const index = orderParse.findIndex(element => element.id == order.id);
 
         orderParse.splice(index, 1);
@@ -98,4 +110,59 @@ const $subTotal = document.createElement('span');
 $subTotal.innerText = 'Total : ' + totaux + ' €';
 
 py2.appendChild($subTotal);
+
+
+document.getElementById('formu').addEventListener('submit', function (e) {
+   
+    e.preventDefault();
+
+    var erreur;
+
+    var inputs = document.getElementsByTagName("input");
+
+    for (var i = 0; i < inputs.length; i++) {
+        if(inputs[i].value.trim().length === 0){
+            erreur = "Veuillez renseigner tous les champs";
+            break;
+        };
+    }
+
+    if(erreur) {
+       
+        document.getElementById("erreur").innerHTML = erreur;
+        return false;
+    } else {
+        alert('formulaire envoyé')
+
+    };
+
+    const orderForm = {
+        contact: {
+            firstName: prenom.value,
+            lastName: nom.value,
+            address: adresse.value,
+            city: ville.value,
+            email: email.value
+        },
+        products: [],
+    };
+    
+    orderParse.forEach(function (element) {
+        for (let i = 0; i < element.quantity; i++) {
+            orderForm.products.push(element.id);
+        }
+    });
+    
+    request('POST', 'http://localhost:3000/api/cameras/order', null, function(){
+
+    });
+
+    window.location.href = "../html/confirmation.html";
+
+});
+
+
+
+
+
 

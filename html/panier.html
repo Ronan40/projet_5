@@ -98,67 +98,69 @@
     </div>
 
     <div class="cont">
-      
-        <div class="row no-gutters">
-          
-          <div class="col-lg-8 contact-form__wrapper p-5 order-lg-1">
-            <form action="#" class="contact-form form-validate" novalidate="novalidate">
-              <div class="row">
-                <div class="col-sm-6 mb-3">
-                  <div class="form-group">
-                    <label class="required-field" for="firstName">Prénom</label>
-                    <input type="text" class="form-control" id="firstName" name="firstName" placeholder="John">
-                  </div>
-                </div>
 
-                <div class="col-sm-6 mb-3">
-                  <div class="form-group">
-                    <label for="lastName">Nom</label>
-                    <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Cook">
-                  </div>
-                </div>
+      <div class="row no-gutters">
 
-                <div class="col-sm-6 mb-3">
-                  <div class="form-group">
-                    <label class="required-field" for="email">Email</label>
-                    <input type="text" class="form-control" id="email" name="email" placeholder="John.cook@captain.com">
-                  </div>
+        <div class="col-lg-8 contact-form__wrapper p-5 order-lg-1">
+          <form class="contact-form form-validate" name="formu" id="formu">
+            <div class="row">
+              <div class="col-sm-6 mb-3">
+                <div class="form-group">
+                  <label class="required-field" for="firstName">Prénom</label>
+                  <input type="text" class="form-control" id="first-name" name="firstName" placeholder="John">
                 </div>
-
-                <div class="col-sm-6 mb-3">
-                  <div class="form-group">
-                    <label for="phone">Téléphone</label>
-                    <input type="tel" class="form-control" id="phone" name="phone" placeholder="(021)-454-545">
-                  </div>
-                </div>
-
-                <div class="col-sm-6 mb-3">
-                  <div class="form-group">
-                    <label for="phone">Ville</label>
-                    <input type="ville" class="form-control" id="ville" name="ville" placeholder="Cambridge">
-                  </div>
-                </div>
-
-                <div class="col-sm-6 mb-3">
-                  <div class="form-group">
-                    <label for="phone">Adresse</label>
-                    <input type="adresse" class="form-control" id="adresse" name="adresse"
-                      placeholder="45 market street">
-                  </div>
-                </div>
-
-                <div class="col-sm-12 mb-3">
-                  <button type="submit" name="submit" class="btn btn-primary">Submit</button>
-                </div>
-
               </div>
-            </form>
-          </div>
-          <!-- End Contact Form Wrapper -->
 
+              <div class="col-sm-6 mb-3">
+                <div class="form-group">
+                  <label for="lastName">Nom</label>
+                  <input type="text" class="form-control" id="last-name" name="lastName" placeholder="Cook">
+                </div>
+              </div>
+
+              <div class="col-sm-6 mb-3">
+                <div class="form-group">
+                  <label class="required-field" for="email">Email</label>
+                  <input type="email" class="form-control" id="email" name="email" placeholder="John.cook@captain.com">
+                </div>
+              </div>
+
+              <div class="col-sm-6 mb-3">
+                <div class="form-group">
+                  <label for="phone">Téléphone</label>
+                  <input type="tel" class="form-control" id="phone" name="phone" placeholder="(021)-454-545">
+                </div>
+              </div>
+
+              <div class="col-sm-6 mb-3">
+                <div class="form-group">
+                  <label for="phone">Ville</label>
+                  <input type="ville" class="form-control" id="city" name="city" placeholder="Cambridge">
+                </div>
+              </div>
+
+              <div class="col-sm-6 mb-3">
+                <div class="form-group">
+                  <label for="phone">Adresse</label>
+                  <input type="adresse" class="form-control" id="address" name="adresse" placeholder="45 market street">
+                </div>
+              </div>
+
+              <div class="col-sm-12 mb-3">
+                <button type="submit" name="submit" class="btn btn-primary" id="submit">Submit</button>
+              </div>
+              <p style="color: red;" id="erreur"></p>
+
+
+
+            </div>
+          </form>
         </div>
+        <!-- End Contact Form Wrapper -->
+
       </div>
-    
+    </div>
+
   </div>
 
 

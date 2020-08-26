@@ -1,6 +1,10 @@
 const ident = localStorage.getItem("openclassroomsp5")
 
+// On récupere l'ID stocker
+
 request('GET', 'http://localhost:3000/api/cameras/' + ident, null, function (camera) {
+
+// On créé des éléments HTML afin de positioner le produit sur sa page détail
 
     const $mainDiv = document.createElement('div');
     $mainDiv.className = "panel-body";
@@ -61,6 +65,7 @@ request('GET', 'http://localhost:3000/api/cameras/' + ident, null, function (cam
 
     const $lenses = document.createElement('select');
 
+ // Un forEach est créé afin de parcourir et générer chaque lentille existante
 
     camera.lenses.forEach(lense => {
         const $option = document.createElement('option');
@@ -99,8 +104,11 @@ request('GET', 'http://localhost:3000/api/cameras/' + ident, null, function (cam
 
     document.getElementById('panel').appendChild($mainDiv)
 
-
+// addEventListener est attribué au bouton "panier" 
+     
     $buttonProd.addEventListener('click', function () {
+
+// Un tableau d'objet est créé afin de pouvoir stocker seulement les éléments voulus
 
         const order = {
             price: camera.price,
@@ -128,7 +136,7 @@ request('GET', 'http://localhost:3000/api/cameras/' + ident, null, function (cam
         const stringOrder = JSON.stringify(orders);
         localStorage.setItem('newOrder', stringOrder);
 
-        window.location.href = '../html/panier.html';
+        window.location.href = '../html/panier.html'; // Permet d'être redirigé sur la page panier
     });
 
 

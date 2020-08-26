@@ -1,7 +1,7 @@
 
-const inner = document.querySelector('.carousel-inner');
+const inner = document.querySelector('.carousel-inner'); 
 
-
+// On utilise la requéte afin de récupérer les cameras et on utilise un forEach permettant ainsi de les positionner dans le carousel.
 request('GET', 'http://localhost:3000/api/cameras', null, function (cameras) {
   cameras.forEach(function (camera, index) {
 
@@ -30,6 +30,7 @@ request('GET', 'http://localhost:3000/api/cameras', null, function (cameras) {
 
 });
 
+// On met en place une fonction qui créera autant de carte produit qu'il y a de cameras
 
 function createCard(cam) {
   const $cardContainer = document.createElement('div');
@@ -69,6 +70,7 @@ function createCard(cam) {
   document.getElementById('card-product-container').appendChild($cardContainer);
 
 
+// On rend chaque carte produit cliquable grâce à addEventListener et on stock l'ID dans le local storage ce qui nous redirige sur la page détail du produit cliqué
 
   $cardSubcontainer.addEventListener('click', function () {
 
