@@ -1,8 +1,8 @@
 
-const inner = document.querySelector('.carousel-inner'); 
+const inner = document.querySelector('.carousel-inner');
 
 // On utilise la requéte afin de récupérer les cameras et on utilise un forEach permettant ainsi de les positionner dans le carousel.
-request('GET', 'http://localhost:3000/api/cameras', null, function (cameras) {
+request('GET', 'http://localhost:3000/api/cameras', null).then(function (cameras) {
   cameras.forEach(function (camera, index) {
 
     const $carouselItem = document.createElement('div');
@@ -23,8 +23,6 @@ request('GET', 'http://localhost:3000/api/cameras', null, function (cameras) {
     inner.appendChild($carouselItem);
 
     createCard(camera)
-
-
 
   });
 
@@ -69,15 +67,13 @@ function createCard(cam) {
 
   document.getElementById('card-product-container').appendChild($cardContainer);
 
-
-// On rend chaque carte produit cliquable grâce à addEventListener et on stock l'ID dans le local storage ce qui nous redirige sur la page détail du produit cliqué
+  // On rend chaque carte produit cliquable grâce à addEventListener et on stock l'ID dans le local storage ce qui nous redirige sur la page détail du produit cliqué
 
   $cardSubcontainer.addEventListener('click', function () {
 
-    localStorage.setItem("openclassroomsp5", cam._id);
+    localStorage.setItem("openclassroomsp5_camId", cam._id);
 
     window.location.href = '../html/produit.html';
   });
-
 
 };

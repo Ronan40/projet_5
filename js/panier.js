@@ -1,4 +1,4 @@
-const orderJson = localStorage.getItem('newOrder'); // On récupere les éléments stockés
+const orderJson = localStorage.getItem('openclassroomsp5_newOrder'); // On récupere les éléments stockés
 
 const orderParse = orderJson && JSON.parse(orderJson); // On vérifie si "orderJson" existe, si oui, on le "parse"
 
@@ -8,7 +8,6 @@ const ville = document.getElementById('city');
 const adresse = document.getElementById('address');
 const email = document.getElementById('email');
 const submit = document.getElementById('submit');
-
 
 let totaux = 0
 
@@ -33,13 +32,6 @@ orderParse.forEach(function (order) {
     $input.type = 'text';
     $input.value = order.quantity;
 
-    const $button = document.createElement('button');
-    $button.rel = "tooltip";
-    $button.className = "btn btn-default";
-
-    const $iPen = document.createElement('i');
-    $iPen.className = "fa fa-pencil";
-
     const $aButton = document.createElement('a');
     $aButton.className = "btn btn-primary";
 
@@ -59,7 +51,6 @@ orderParse.forEach(function (order) {
 
     totaux += totalPrice;
 
-
     $trContain.appendChild($tdProd);
     $trContain.appendChild($tdForm);
     $trContain.appendChild($tdPrice);
@@ -70,18 +61,13 @@ orderParse.forEach(function (order) {
     $tdForm.appendChild($form);
 
     $form.appendChild($input);
-    $form.appendChild($button);
     $form.appendChild($aButton);
-
-    $button.appendChild($iPen);
 
     $aButton.appendChild($iButton);
 
     const $tbody = document.getElementById('tbody');
 
     $tbody.appendChild($trContain);
-
-
 
     $aButton.addEventListener('click', function () {
 
@@ -111,9 +97,8 @@ $subTotal.innerText = 'Total : ' + totaux + ' €';
 
 py2.appendChild($subTotal);
 
-
 document.getElementById('formu').addEventListener('submit', function (e) {
-   
+
     e.preventDefault();
 
     var erreur;
@@ -121,14 +106,14 @@ document.getElementById('formu').addEventListener('submit', function (e) {
     var inputs = document.getElementsByTagName("input");
 
     for (var i = 0; i < inputs.length; i++) {
-        if(inputs[i].value.trim().length === 0){
+        if (inputs[i].value.trim().length === 0) {
             erreur = "Veuillez renseigner tous les champs";
             break;
         };
     }
 
-    if(erreur) {
-       
+    if (erreur) {
+
         document.getElementById("erreur").innerHTML = erreur;
         return false;
     } else {
@@ -146,18 +131,20 @@ document.getElementById('formu').addEventListener('submit', function (e) {
         },
         products: [],
     };
-    
+
     orderParse.forEach(function (element) {
         for (let i = 0; i < element.quantity; i++) {
             orderForm.products.push(element.id);
         }
     });
-    
-    request('POST', 'http://localhost:3000/api/cameras/order', null, function(){
+
+    request('POST', 'http://localhost:3000/api/cameras/order', orderForm).then(function (resultOrder) {
+
+        localStorage.setItem('openclassroomsp5_orderId', resultOrder.orderId)
+
+        window.location.href = "../html/confirmation.html";
 
     });
-
-    window.location.href = "../html/confirmation.html";
 
 });
 
