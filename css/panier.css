@@ -69,13 +69,24 @@ table tr th {
     margin-top: 100px;
 }
 
+#submit{
+   margin-bottom: 20px;
+}
+
+#shopping{
+    display: flex;
+    justify-content: center;
+}
+
 #erreur{
     font-size: 18px;
-    color: red;
+    color: rgb(255, 0, 0);
+    margin-left: 20px;
 }
 
 .cont{
     margin-bottom: -60px; 
+    margin-top: -20px;
 }
 
 .row{
@@ -85,23 +96,26 @@ table tr th {
 
 .btn{
     background-color: rgb(185, 19, 19);
-    
-   
 }
 
 .btn-primary {
     border-color: white;
-    margin-top: 5px;
+}
+
+.trash:hover{
+    background: rgb(228, 20, 20); 
+    border-color: white;
 }
 
 .btn-success {
     border-color: white;
-    margin-top: 5px;
+    margin-top: 25px;
 }
 
 label{
     color: white;
 }
+
 
 .contact-info__wrapper {
     overflow: hidden;

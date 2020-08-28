@@ -1,0 +1,75 @@
+
+    h2{
+       
+        padding-top: 150px;
+        padding-bottom: 50px;
+        font-size: 35px;
+        text-align: center;
+        color: rgba(0, 0, 0, 0.794); 
+    }
+
+    .navbar-brand{
+        font-size: 35px;
+        font-family: 'Special Elite', 'cursive';
+    }
+    
+    #navbar{
+        padding: 30px 0;  
+        box-shadow: 1px 1px 50px;
+    }
+    
+    #navbarResponsive{
+        font-family: 'Special Elite', 'cursive';
+        font-size: 20px;
+    }
+    
+    footer{ 
+        display: flex !important;
+        justify-content: center !important;  
+    }
+    
+    .icone{
+        color: white;
+        margin: 0 40px;
+    }
+    
+    #ref{
+        background:  rgba(255, 253, 253, 0.5);
+        padding-bottom: 250px;
+    }
+
+    #commande{
+        text-align: center;
+        font-size: 30px;
+        color: rgba(0, 0, 0, 0.794); 
+        padding: 20px 0;
+    }
+   
+    #identif{
+        text-align: center;
+        font-size: 22px;
+        padding-bottom: 80px;
+    }
+
+    #div-but{
+        display: flex;
+        justify-content: center;
+        margin-bottom: -150px;
+    }
+
+    .btn{
+        background: rgb(185, 19, 19); 
+        border-color: rgb(185, 19, 19); 
+        padding: 10px 30px;
+    }
+
+    .btn:hover{
+        background: rgb(228, 20, 20); 
+        border-color: rgb(185, 19, 19); 
+    }
+
+    .fa-menu{
+        font-size: 20px;
+    }
+    
+    

@@ -33,7 +33,7 @@ orderParse.forEach(function (order) {
     $input.value = order.quantity;
 
     const $aButton = document.createElement('a');
-    $aButton.className = "btn btn-primary";
+    $aButton.className = "btn btn-primary trash";
 
     const $iButton = document.createElement('i');
     $iButton.className = "fa fa-trash-o";
@@ -77,15 +77,13 @@ orderParse.forEach(function (order) {
 
         orderParse.splice(index, 1);
 
-        localStorage.setItem('newOrder', JSON.stringify(orderParse));
+        localStorage.setItem('openclassroomsp5_newOrder', JSON.stringify(orderParse));
 
         $tbody.removeChild($trContain);
 
         totaux -= totalPrice;
 
         $subTotal.innerText = 'Total : ' + totaux + ' €';
-
-        console.log(orderParse)
     });
 
 });
@@ -117,7 +115,6 @@ document.getElementById('formu').addEventListener('submit', function (e) {
         document.getElementById("erreur").innerHTML = erreur;
         return false;
     } else {
-        alert('formulaire envoyé')
 
     };
 
@@ -140,10 +137,10 @@ document.getElementById('formu').addEventListener('submit', function (e) {
 
     request('POST', 'http://localhost:3000/api/cameras/order', orderForm).then(function (resultOrder) {
 
-        localStorage.setItem('openclassroomsp5_orderId', resultOrder.orderId)
+        const finalOrder = JSON.stringify(resultOrder); // On transforme cet objet en chaine de caractère
+        localStorage.setItem('myOrder', finalOrder);
 
-        window.location.href = "../html/confirmation.html";
-
+        window.location.href = '../html/confirmation.html';
     });
 
 });

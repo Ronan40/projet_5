@@ -134,7 +134,7 @@ request('GET', 'http://localhost:3000/api/cameras/' + ident, null).then(function
         const stringOrder = JSON.stringify(orders);
         localStorage.setItem('openclassroomsp5_newOrder', stringOrder);
 
-        window.location.href = '../html/panier.html'; // Permet d'être redirigé sur la page panier
+        window.location.href = '../html/panier.html'; // Redirige vers la page panier
     });
 
 });
