@@ -11,8 +11,8 @@ text-align: center;
 }
 
 .navbar-brand{
-    font-size: 35px;
-    font-family: 'Special Elite', 'cursive';
+    font-size: 40px;
+    font-family: 'Blue Spirits', 'cursive';
 }
 
 #navbar{
@@ -21,8 +21,8 @@ text-align: center;
 }
 
 #navbarResponsive{
-    font-family: 'Special Elite', 'cursive';
-    font-size: 20px;
+    font-family: 'Blue Spirits', 'cursive';
+    font-size: 25px;
 }
 
 .col-lg-12{

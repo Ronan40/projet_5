@@ -21,6 +21,8 @@ orderParse.forEach(function (order) {
 
     const $strongProd = document.createElement('strong');
     $strongProd.innerText = order.name;
+    $strongProd.style.fontFamily = 'Blue Spirits';
+    $strongProd.style.fontSize = '20px';
 
     const $tdForm = document.createElement('td');
 
@@ -30,6 +32,7 @@ orderParse.forEach(function (order) {
     const $input = document.createElement('input');
     $input.className = "form-control";
     $input.type = 'text';
+    $input.style.fontFamily = 'Kaushan Script';
     $input.value = order.quantity;
 
     const $aButton = document.createElement('a');
@@ -41,15 +44,20 @@ orderParse.forEach(function (order) {
     const $tdPrice = document.createElement('td');
     $tdPrice.id = 'td-price';
     $tdPrice.innerText = order.price + ' €';
+    $tdPrice.style.fontFamily = 'VintageOne';
+    $tdPrice.style.fontSize = '20px';
 
     const $tdTotal = document.createElement('td');
 
     const totalPrice = order.price * order.quantity;
     $tdTotal.id = 'td-total';
+    $tdTotal.style.fontFamily = 'VintageOne';
+    $tdTotal.style.fontSize = '20px';
 
     $tdTotal.innerText = totalPrice + ' €';
 
     totaux += totalPrice;
+    
 
     $trContain.appendChild($tdProd);
     $trContain.appendChild($tdForm);
@@ -84,8 +92,9 @@ orderParse.forEach(function (order) {
         totaux -= totalPrice;
 
         $subTotal.innerText = 'Total : ' + totaux + ' €';
+        
     });
-
+    
 });
 
 const py2 = document.getElementById('py-2');

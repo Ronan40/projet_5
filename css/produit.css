@@ -3,8 +3,8 @@
     }
 
     .navbar-brand{
-        font-size: 35px;
-        font-family: 'Special Elite', 'cursive';
+        font-size: 40px;
+        font-family: 'Blue Spirits', 'cursive';
     }
     
     #navbar{
@@ -13,8 +13,8 @@
     }
     
     #navbarResponsive{
-        font-family: 'Special Elite', 'cursive';
-        font-size: 20px;
+        font-family: 'Blue Spirits', 'cursive';
+        font-size: 25px;
     }
 
     /*panel*/
@@ -31,7 +31,6 @@
         margin-top: 20px;
         display: flex;
         justify-content: center;
-        ;
     }
   
     
@@ -43,19 +42,25 @@
     }
     
     .pro-d-title {
-        font-size: 35px;
+        font-size: 45px;
         margin: 30px 0;
         color: rgb(185, 19, 19);
         font-weight: 200;
     }
     
     .product_meta a, .pro-price{
-        color:#b91313; ;
+        color:#b91313; 
     }
     
     .pro-price{
         font-size: 28px;
         font-weight: 300;
+        color : black;
+    }
+
+    .btn-danger{
+        background: #b91313; 
+        border-color: white;  
     }
     
     .quantity {
@@ -118,5 +123,5 @@
     .btn{
         margin: 30px 0;
         padding: 10px 25px;
-        font-size: 18px;
+        font-size: 22px;
     }

@@ -24,10 +24,12 @@ request('GET', 'http://localhost:3000/api/cameras/' + ident, null).then(function
 
     const $titleProduct = document.createElement('h4');
     $titleProduct.className = 'pro-d-title';
+    $titleProduct.style.fontFamily = 'Blue Spirits';
     $titleProduct.innerText = camera.name;
 
     const $descript = document.createElement('p');
     $descript.className = "descript"
+    $descript.style.fontFamily = 'Kaushan Script';
     $descript.innerText = camera.description;
 
     const $priceDiv = document.createElement('div');
@@ -35,6 +37,7 @@ request('GET', 'http://localhost:3000/api/cameras/' + ident, null).then(function
 
     const $priceSpan = document.createElement('span');
     $priceSpan.className = "pro-price";
+    $priceSpan.style.fontFamily = 'VintageOne';
     $priceSpan.innerText = "Prix : " + camera.price + " €";
 
     const $quantiDiv = document.createElement('div');
@@ -42,11 +45,13 @@ request('GET', 'http://localhost:3000/api/cameras/' + ident, null).then(function
 
     const $quantiLab = document.createElement('label');
     $quantiLab.innerText = "Quantité :";
+    $quantiLab.style.fontFamily = 'Kaushan Script';
     $quantiLab.className = "quanti"
 
     const $quantInput = document.createElement('input');
     $quantInput.type = "quantibut";
     $quantInput.placeholder = "1";
+    $quantInput.style.fontFamily = 'Kaushan Script';
     $quantInput.className = "form-control quantity";
 
     const $paraButton = document.createElement('p');
@@ -55,12 +60,14 @@ request('GET', 'http://localhost:3000/api/cameras/' + ident, null).then(function
     $buttonProd.className = "btn btn-round btn-danger";
     $buttonProd.type = 'button';
     $buttonProd.innerText = ' Panier ';
+    $buttonProd.style.fontFamily = 'Kaushan Script';
 
     const $iButton = document.createElement('i');
     $iButton.className = "fa fa-shopping-cart";
 
     const $lenseLab = document.createElement('label');
     $lenseLab.innerText = 'Choix de la lentille :';
+    $lenseLab.style.fontFamily = 'Kaushan Script';
     $lenseLab.className = 'lenselab';
 
     const $lenses = document.createElement('select');

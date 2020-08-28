@@ -48,14 +48,17 @@ function createCard(cam) {
 
   const $cardTitle = document.createElement('h4');
   $cardTitle.className = "card-title";
+  $cardTitle.style.fontFamily = 'VintageOne';
   $cardTitle.innerText = cam.name;
 
   const $cardPrice = document.createElement('h5');
   $cardPrice.className = "card-price";
+  $cardPrice.style.fontFamily = 'VintageOne';
   $cardPrice.innerText = cam.price + ' €';
 
   const $cardText = document.createElement('p');
   $cardText.className = "card-text";
+  $cardText.style.fontFamily = 'VintageOne';
   $cardText.innerText = cam.description;
 
   $cardContainer.appendChild($cardSubcontainer);

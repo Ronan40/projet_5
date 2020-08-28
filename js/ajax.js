@@ -1,6 +1,6 @@
 function request(reqtype, url, toSend) {
 
-    return new Promise( resolve =>{
+    return new Promise(resolve => {
         const xhr = new XMLHttpRequest();
 
         xhr.open(reqtype, url);
