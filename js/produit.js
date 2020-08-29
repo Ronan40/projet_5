@@ -1,10 +1,10 @@
 const ident = localStorage.getItem("openclassroomsp5_camId")
 
-// On récupere l'ID stocker
+// On récupere l'ID stocker dans le local storage.
 
 request('GET', 'http://localhost:3000/api/cameras/' + ident, null).then(function (camera) {
 
-    // On crée des éléments HTML afin de positioner le produit sur sa page détail
+    // On crée des éléments HTML afin de pouvoir positioner le produit sur sa page détail.
 
     const $mainDiv = document.createElement('div');
     $mainDiv.className = "panel-body";
@@ -72,7 +72,7 @@ request('GET', 'http://localhost:3000/api/cameras/' + ident, null).then(function
 
     const $lenses = document.createElement('select');
 
-    // Un forEach est créé afin de parcourir et générer chaque lentille existante
+    // Un forEach est créé afin de parcourir et générer chaque lentille existante.
 
     camera.lenses.forEach(lense => {
         const $option = document.createElement('option');
@@ -109,11 +109,11 @@ request('GET', 'http://localhost:3000/api/cameras/' + ident, null).then(function
 
     document.getElementById('panel').appendChild($mainDiv)
 
-    // addEventListener est attribué au bouton "panier" 
-
     $buttonProd.addEventListener('click', function () {
 
-        // Un tableau d'objet est créé afin de pouvoir stocker seulement les éléments voulus
+        // Un addEventListener est attribué au bouton "panier".
+
+        // Un tableau d'objet est créé afin de pouvoir stocker seulement les détails de chaque produit voulus.
 
         const order = {
             price: camera.price,
@@ -141,7 +141,7 @@ request('GET', 'http://localhost:3000/api/cameras/' + ident, null).then(function
         const stringOrder = JSON.stringify(orders);
         localStorage.setItem('openclassroomsp5_newOrder', stringOrder);
 
-        window.location.href = '../html/panier.html'; // Redirige vers la page panier
+        window.location.href = '../html/panier.html'; // Redirige vers la page panier.
     });
 
 });

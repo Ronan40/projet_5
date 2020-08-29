@@ -1,15 +1,4 @@
-.card-title {
-text-align: center;
-}
-
-.card-price{
-    text-align: center;
-}
-
-.card-text{
-    text-align: center;
-}
-
+/* HEADER / NAVBAR */
 .navbar-brand{
     font-size: 40px;
     font-family: 'Blue Spirits', 'cursive';
@@ -25,9 +14,25 @@ text-align: center;
     font-size: 25px;
 }
 
+/* BODY */
+.card-title {
+text-align: center;
+}
+
+.card-price{
+    text-align: center;
+}
+
+.card-text{
+    text-align: center;
+}
+
+
 .col-lg-12{
     margin-top: 80px;
 }
+
+/* FOOTER */
 
 footer{ 
     display: flex !important;

@@ -1,54 +1,5 @@
 
-#py-2{
-    font-family: 'VintageOne';
-    font-size: 25px;
-    font-weight: 500;
-    text-align: center;
-    margin: 30px 0;
-}
-
-#td-total{
-    font-weight: bold;
-}
-
-.navbar-brand{
-    font-size: 40px;
-    font-family: 'Blue Spirits', 'cursive';
-}
-
-#sub{
-   margin-left: 15px;
-}
-
-#navbar{
-    padding: 30px 0;  
-    box-shadow: 1px 1px 50px;
-}
-
-#navbarResponsive{
-    font-family: 'Blue Spirits', 'cursive';
-    font-size: 25px;
-}
-
-footer{ 
-    display: flex !important;
-    justify-content: center !important;  
-    box-shadow: 1px 1px 50px;
-}
-
-.icone{
-    color: white;
-    margin: 0 40px;
-}
-
-.img-cart {
-    display: block;
-    max-width: 50px;
-    height: auto;
-    margin-left: auto;
-    margin-right: auto;
-}
-
+/* GENERAL */
 input{
     font-family: 'VintageOne';
 }
@@ -63,6 +14,54 @@ table tr th {
     font-weight: lighter;
     font-size: 18px;
     font-family: 'Kaushan Script';
+}
+label{
+    color: white;
+    font-family : 'Kaushan Script';
+    font-size : 20px;
+}
+
+
+/* HEADER / NAVBAR */
+#navbar{
+    padding: 30px 0;  
+    box-shadow: 1px 1px 50px;
+}
+
+#navbarResponsive{
+    font-family: 'Blue Spirits', 'cursive';
+    font-size: 25px;
+}
+.navbar-brand{
+    font-size: 40px;
+    font-family: 'Blue Spirits', 'cursive';
+}
+
+/* BODY */
+
+#py-2{
+    font-family: 'VintageOne';
+    font-size: 25px;
+    font-weight: 500;
+    text-align: center;
+    margin: 30px 0;
+}
+
+#td-total{
+    font-weight: bold;
+}
+
+#sub{
+   margin-left: 15px;
+}
+
+
+.img-cart {
+    display: block;
+    max-width: 50px;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .table-responsive{
@@ -127,17 +126,25 @@ table tr th {
     font-size: 17px;
 }
 
-label{
-    color: white;
-    font-family : 'Kaushan Script';
-    font-size : 20px;
-}
-
-
 .contact-info__wrapper {
     overflow: hidden;
     border-radius: .625rem .625rem 0 0
 }
+
+/* FOOTER */
+
+footer{ 
+    display: flex !important;
+    justify-content: center !important;  
+    box-shadow: 1px 1px 50px;
+}
+
+.icone{
+    color: white;
+    margin: 0 40px;
+}
+
+
 
 @media (min-width: 1024px) {
     .contact-info__wrapper {

@@ -1,7 +1,20 @@
+   
+   /* GENERAL */
+   
     body{
-    color: black;
+        color: black;
+    } 
+
+    label{
+        display: block;
+        margin-top: 30px;
     }
 
+    select{
+        margin-left: 20px;
+    }
+    
+    /* HEADER / NAVBAR */
     .navbar-brand{
         font-size: 40px;
         font-family: 'Blue Spirits', 'cursive';
@@ -17,14 +30,14 @@
         font-size: 25px;
     }
 
-    /*panel*/
+    /* PANEL */
     .panel { 
         border: none;
         box-shadow: none;
         text-align: center;  
     }
       
-    /*product list*/
+    /* PRODUCT LIST */
 
     .form-group{
         font-size: 20px;
@@ -68,18 +81,6 @@
         margin: 10px;
         text-align: center;
     }
-    
-    footer{ 
-        display: flex !important;
-        justify-content: center !important;  
-        box-shadow: 1px 1px 50px;
-        margin:0;
-    }
-    
-    .icone{
-         color: white;
-         margin: 0 40px;
-    }  
 
     #contain{
         background-color:rgba(255, 253, 253, 0.4);
@@ -98,19 +99,10 @@
         border-bottom:  double 4.5px #b91313;
     }
 
-    label{
-        display: block;
-        margin-top: 30px;
-    }
-
     .form-control{
        margin-top: 25px;
     }
     
-    select{
-        margin-left: 20px;
-    }
-
     .lenselab{
         font-size: 20px;
     }
@@ -125,3 +117,17 @@
         padding: 10px 25px;
         font-size: 22px;
     }
+
+    /* FOOTER */
+
+    footer{ 
+        display: flex !important;
+        justify-content: center !important;  
+        box-shadow: 1px 1px 50px;
+        margin:0;
+    }
+    
+    .icone{
+         color: white;
+         margin: 0 40px;
+    }  

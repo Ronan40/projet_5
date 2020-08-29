@@ -9,11 +9,11 @@ const adresse = document.getElementById('address');
 const email = document.getElementById('email');
 const submit = document.getElementById('submit');
 
-let totaux = 0
+let totaux = 0 
 
 orderParse.forEach(function (order) {
 
-    // Ce forEach sert à mettre en place un container qui contiendra chaque produit
+    // Un forEach est mis en place afin de créer autant de containeur qu'il y a de produit sélectionné.
 
     const $trContain = document.createElement('tr');
 
@@ -79,7 +79,7 @@ orderParse.forEach(function (order) {
 
     $aButton.addEventListener('click', function () {
 
-        // On fait en sorte que le bouton corbeille supprime le produit correspondant à celui-ci
+        // On fait en sorte que le bouton corbeille supprime le produit correspondant à celui cliqué.
 
         const index = orderParse.findIndex(element => element.id == order.id);
 
@@ -106,6 +106,8 @@ py2.appendChild($subTotal);
 
 document.getElementById('formu').addEventListener('submit', function (e) {
 
+   // Cet event est appliqué au bouton 'submit' qui enverra les informations de la commande.
+
     e.preventDefault();
 
     var erreur;
@@ -120,7 +122,6 @@ document.getElementById('formu').addEventListener('submit', function (e) {
     }
 
     if (erreur) {
-
         document.getElementById("erreur").innerHTML = erreur;
         return false;
     } else {
@@ -136,13 +137,13 @@ document.getElementById('formu').addEventListener('submit', function (e) {
             email: email.value
         },
         products: [],
-    };
+    }; // On stock dans un objet les informations recueillies dans le formulaire.
 
     orderParse.forEach(function (element) {
         for (let i = 0; i < element.quantity; i++) {
             orderForm.products.push(element.id);
         }
-    });
+    }); // un For est imbriqué dans un forEach afin d'insérer l'ID de chaque produit dans le tableau 'products'.
 
     request('POST', 'http://localhost:3000/api/cameras/order', orderForm).then(function (resultOrder) {
 

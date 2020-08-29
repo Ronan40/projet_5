@@ -1,3 +1,4 @@
+    /* GENERAL */ 
 
     h2{
         padding-top: 150px;
@@ -6,6 +7,8 @@
         text-align: center;
         color: rgba(0, 0, 0, 0.794); 
     }
+    
+    /* HEADER / NAVBAR */
 
     .navbar-brand{
         font-size: 40px;
@@ -22,15 +25,7 @@
         font-size: 25px;
     }
     
-    footer{ 
-        display: flex !important;
-        justify-content: center !important;  
-    }
-    
-    .icone{
-        color: white;
-        margin: 0 40px;
-    }
+    /* BODY */
     
     #ref{
         background:  rgba(255, 253, 253, 0.5);
@@ -72,4 +67,14 @@
         font-size: 20px;
     }
     
+    /* FOOTER */ 
+
+    footer{ 
+        display: flex !important;
+        justify-content: center !important;  
+    }
     
+    .icone{
+        color: white;
+        margin: 0 40px;
+    }

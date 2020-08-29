@@ -1,16 +1,13 @@
-const myOrder = JSON.parse(localStorage.getItem('myOrder'));
-console.log(myOrder)
+const myOrder = JSON.parse(localStorage.getItem('myOrder')); 
+
+// Une constante est créée afin de récupérer les informations dans le local storage et les parse.
 
 const paraId = document.getElementById('identif');
 const prenom = document.getElementById('first-name');
 
 
-
-// AFFICHAGE DES INFORMATIONS DE CONFIRMATION
-
-
-paraId.innerText = 'n° : ' + myOrder.orderId;
-prenom.innerText = myOrder.contact.firstName;
+paraId.innerText = 'n° : ' + myOrder.orderId; // On affiche l'ID de la commande.
+prenom.innerText = myOrder.contact.firstName; 
 
 
 
