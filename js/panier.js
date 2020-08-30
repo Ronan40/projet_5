@@ -145,7 +145,7 @@ document.getElementById('formu').addEventListener('submit', function (e) {
         }
     }); // un For est imbriqué dans un forEach afin d'insérer l'ID de chaque produit dans le tableau 'products'.
 
-    request('POST', 'http://localhost:3000/api/cameras/order', orderForm).then(function (resultOrder) {
+    request('POST', 'https://oc-p5-api.herokuapp.com/api/cameras/order', orderForm).then(function (resultOrder) {
 
         const finalOrder = JSON.stringify(resultOrder); // On transforme cet objet en chaine de caractère
         localStorage.setItem('myOrder', finalOrder);

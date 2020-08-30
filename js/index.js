@@ -4,7 +4,7 @@ const inner = document.querySelector('.carousel-inner');
 // On utilise la requéte afin de récupérer les cameras 
 // et on utilise un forEach afin de les parcourir et de les générer.
 
-request('GET', 'http://localhost:3000/api/cameras', null).then(function (cameras) {
+request('GET', 'https://oc-p5-api.herokuapp.com/api/cameras', null).then(function (cameras) {
   cameras.forEach(function (camera, index) {
 
     const $carouselItem = document.createElement('div');
