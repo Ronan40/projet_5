@@ -1,24 +1,30 @@
-const myOrder = JSON.parse(localStorage.getItem('myOrder'));
+(() => {
 
-// Une constante est créée afin de récupérer les informations dans le local storage et les parse.
+    "use strict";
 
-const paraId = document.getElementById('identif');
-const prenom = document.getElementById('first-name');
+    const myOrder = JSON.parse(localStorage.getItem('myOrder'));
 
-paraId.innerText = 'n° : ' + myOrder.orderId; // On affiche l'ID de la commande.
-prenom.innerText = myOrder.contact.firstName;
+    // Une constante est créée afin de récupérer les informations dans le local storage et les parse.
 
-document.getElementById('a-clear').addEventListener('click', function () {
-    localStorage.clear();
-});
+    const paraId = document.getElementById('identif');
+    const prenom = document.getElementById('first-name');
 
-document.getElementById('a-home').addEventListener('click', function () {
-    localStorage.clear();
-});
+    paraId.innerText = 'n° : ' + myOrder.orderId; // On affiche l'ID de la commande.
+    prenom.innerText = myOrder.contact.firstName;
 
-document.getElementById('a-nav').addEventListener('click', function () {
-    localStorage.clear();
-});
+    // Un event est créé afin de vider le local storage
 
+    document.getElementById('a-clear').addEventListener('click', function () {
+        localStorage.clear();
+    });
 
+    document.getElementById('a-home').addEventListener('click', function () {
+        localStorage.clear();
+    });
+
+    document.getElementById('a-nav').addEventListener('click', function () {
+        localStorage.clear();
+    });
+
+})();
 

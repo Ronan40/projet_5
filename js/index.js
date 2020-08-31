@@ -1,12 +1,11 @@
-
-(() => {
+(() => { // variable globale
 
   "use strict";
 
   const inner = document.querySelector('.carousel-inner');
 
   // On utilise la requéte afin de récupérer les cameras 
-  // et on utilise un forEach afin de les parcourir et de les générer.
+  // et on utilise un forEach afin de les parcourir et de les générer dans le carousel.
 
   request('GET', 'https://oc-p5-api.herokuapp.com/api/cameras', null).then(function (cameras) {
     cameras.forEach(function (camera, index) {
@@ -28,7 +27,7 @@
 
       inner.appendChild($carouselItem);
 
-      createCard(camera)
+      createCard(camera) // On fait appel à la fonction créée ci-dessous
 
     });
 
@@ -88,4 +87,4 @@
 
   };
 
-})()
+})();

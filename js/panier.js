@@ -1,160 +1,164 @@
-const orderJson = localStorage.getItem('openclassroomsp5_newOrder'); // On récupere les éléments stockés
+(() => {
 
-const orderParse = orderJson && JSON.parse(orderJson); // On vérifie si "orderJson" existe, si oui, on le "parse"
+    "use strict";
 
-const prenom = document.getElementById('first-name');
-const nom = document.getElementById('last-name');
-const ville = document.getElementById('city');
-const adresse = document.getElementById('address');
-const email = document.getElementById('email');
-const submit = document.getElementById('submit');
+    const orderJson = localStorage.getItem('openclassroomsp5_newOrder'); // On récupere les éléments stockés
 
-let totaux = 0
+    const orderParse = orderJson && JSON.parse(orderJson); // On vérifie si "orderJson" existe, si oui, on le "parse"
 
-orderParse.forEach(function (order) {
+    const prenom = document.getElementById('first-name');
+    const nom = document.getElementById('last-name');
+    const ville = document.getElementById('city');
+    const adresse = document.getElementById('address');
+    const email = document.getElementById('email');
+    const submit = document.getElementById('submit');
 
-    // Un forEach est mis en place afin de créer autant de containeur qu'il y a de produit sélectionné.
+    let totaux = 0
 
-    const $trContain = document.createElement('tr');
+    orderParse.forEach(function (order) {
 
-    const $tdProd = document.createElement('td');
+        // Un forEach est mis en place afin de créer autant de containeur qu'il y a de produit sélectionné.
 
-    const $strongProd = document.createElement('strong');
-    $strongProd.innerText = order.name;
-    $strongProd.style.fontFamily = 'Blue Spirits';
-    $strongProd.style.fontSize = '20px';
+        const $trContain = document.createElement('tr');
 
-    const $tdForm = document.createElement('td');
+        const $tdProd = document.createElement('td');
 
-    const $form = document.createElement('form');
-    $form.className = "form-inline";
+        const $strongProd = document.createElement('strong');
+        $strongProd.innerText = order.name;
+        $strongProd.style.fontFamily = 'Blue Spirits';
+        $strongProd.style.fontSize = '20px';
 
-    const $input = document.createElement('input');
-    $input.className = "form-control";
-    $input.type = 'text';
-    $input.style.fontFamily = 'Kaushan Script';
-    $input.value = order.quantity;
+        const $tdForm = document.createElement('td');
 
-    const $aButton = document.createElement('a');
-    $aButton.className = "btn btn-primary trash";
+        const $form = document.createElement('form');
+        $form.className = "form-inline";
 
-    const $iButton = document.createElement('i');
-    $iButton.className = "fa fa-trash-o";
+        const $input = document.createElement('input');
+        $input.className = "form-control";
+        $input.type = 'text';
+        $input.style.fontFamily = 'Kaushan Script';
+        $input.value = order.quantity;
 
-    const $tdPrice = document.createElement('td');
-    $tdPrice.id = 'td-price';
-    $tdPrice.innerText = order.price + ' €';
-    $tdPrice.style.fontFamily = 'VintageOne';
-    $tdPrice.style.fontSize = '20px';
+        const $aButton = document.createElement('a');
+        $aButton.className = "btn btn-primary trash";
 
-    const $tdTotal = document.createElement('td');
+        const $iButton = document.createElement('i');
+        $iButton.className = "fa fa-trash-o";
 
-    const totalPrice = order.price * order.quantity;
-    $tdTotal.id = 'td-total';
-    $tdTotal.style.fontFamily = 'VintageOne';
-    $tdTotal.style.fontSize = '20px';
+        const $tdPrice = document.createElement('td');
+        $tdPrice.id = 'td-price';
+        $tdPrice.innerText = order.price + ' €';
+        $tdPrice.style.fontFamily = 'VintageOne';
+        $tdPrice.style.fontSize = '20px';
 
-    $tdTotal.innerText = totalPrice + ' €';
+        const $tdTotal = document.createElement('td');
 
-    totaux += totalPrice;
+        const totalPrice = order.price * order.quantity;
+        $tdTotal.id = 'td-total';
+        $tdTotal.style.fontFamily = 'VintageOne';
+        $tdTotal.style.fontSize = '20px';
 
-    $trContain.appendChild($tdProd);
-    $trContain.appendChild($tdForm);
-    $trContain.appendChild($tdPrice);
-    $trContain.appendChild($tdTotal);
+        $tdTotal.innerText = totalPrice + ' €';
 
-    $tdProd.appendChild($strongProd);
+        totaux += totalPrice;
 
-    $tdForm.appendChild($form);
+        $trContain.appendChild($tdProd);
+        $trContain.appendChild($tdForm);
+        $trContain.appendChild($tdPrice);
+        $trContain.appendChild($tdTotal);
 
-    $form.appendChild($input);
-    $form.appendChild($aButton);
+        $tdProd.appendChild($strongProd);
 
-    $aButton.appendChild($iButton);
+        $tdForm.appendChild($form);
 
-    const $tbody = document.getElementById('tbody');
+        $form.appendChild($input);
+        $form.appendChild($aButton);
 
-    $tbody.appendChild($trContain);
+        $aButton.appendChild($iButton);
 
-    $aButton.addEventListener('click', function () {
+        const $tbody = document.getElementById('tbody');
 
-        // On fait en sorte que le bouton corbeille supprime le produit correspondant à celui cliqué.
+        $tbody.appendChild($trContain);
 
-        const index = orderParse.findIndex(element => element.id == order.id);
+        $aButton.addEventListener('click', function () {
 
-        orderParse.splice(index, 1);
+            // On fait en sorte que le bouton corbeille supprime le produit correspondant à celui cliqué.
 
-        localStorage.setItem('openclassroomsp5_newOrder', JSON.stringify(orderParse));
+            const index = orderParse.findIndex(element => element.id == order.id);
 
-        $tbody.removeChild($trContain);
+            orderParse.splice(index, 1);
 
-        totaux -= totalPrice;
+            localStorage.setItem('openclassroomsp5_newOrder', JSON.stringify(orderParse));
 
-        $subTotal.innerText = 'Total : ' + totaux + ' €';
+            $tbody.removeChild($trContain);
+
+            totaux -= totalPrice;
+
+            $subTotal.innerText = 'Total : ' + totaux + ' €';
+
+        });
 
     });
 
-});
+    const py2 = document.getElementById('py-2');
 
-const py2 = document.getElementById('py-2');
+    const $subTotal = document.createElement('span');
+    $subTotal.innerText = 'Total : ' + totaux + ' €';
 
-const $subTotal = document.createElement('span');
-$subTotal.innerText = 'Total : ' + totaux + ' €';
+    py2.appendChild($subTotal);
 
-py2.appendChild($subTotal);
+    document.getElementById('formu').addEventListener('submit', function (e) {
 
-document.getElementById('formu').addEventListener('submit', function (e) {
+        // Cet event est appliqué au bouton 'submit' qui enverra les informations de la commande.
 
-    // Cet event est appliqué au bouton 'submit' qui enverra les informations de la commande.
+        e.preventDefault();
 
-    e.preventDefault();
+        var erreur;
 
-    var erreur;
+        var inputs = document.getElementsByTagName("input");
 
-    var inputs = document.getElementsByTagName("input");
-
-    for (var i = 0; i < inputs.length; i++) {
-        if (inputs[i].value.trim().length === 0) {
-            erreur = "Veuillez renseigner tous les champs";
-            break;
-        };
-    }
-
-    if (erreur) {
-        document.getElementById("erreur").innerHTML = erreur;
-        return false;
-    } else {
-
-    };
-
-    const orderForm = {
-        contact: {
-            firstName: prenom.value,
-            lastName: nom.value,
-            address: adresse.value,
-            city: ville.value,
-            email: email.value
-        },
-        products: [],
-    }; // On stock dans un objet les informations recueillies dans le formulaire.
-
-    orderParse.forEach(function (element) {
-        for (let i = 0; i < element.quantity; i++) {
-            orderForm.products.push(element.id);
+        for (var i = 0; i < inputs.length; i++) {
+            if (inputs[i].value.trim().length === 0) {
+                erreur = "Veuillez renseigner tous les champs";
+                break;
+            };
         }
-    }); // un For est imbriqué dans un forEach afin d'insérer l'ID de chaque produit dans le tableau 'products'.
 
-    request('POST', 'https://oc-p5-api.herokuapp.com/api/cameras/order', orderForm).then(function (resultOrder) {
+        if (erreur) {
+            document.getElementById("erreur").innerHTML = erreur;
+            return false;
+        } else {
 
-        const finalOrder = JSON.stringify(resultOrder); // On transforme cet objet en chaine de caractère
-        localStorage.setItem('myOrder', finalOrder);
+        };
 
-        window.location.href = '../html/confirmation.html';
+        const orderForm = {
+            contact: {
+                firstName: prenom.value,
+                lastName: nom.value,
+                address: adresse.value,
+                city: ville.value,
+                email: email.value
+            },
+            products: [],
+        }; // On stock dans un objet les informations recueillies dans le formulaire.
+
+        orderParse.forEach(function (element) {
+            for (let i = 0; i < element.quantity; i++) {
+                orderForm.products.push(element.id);
+            }
+        }); // un For est imbriqué dans un forEach afin d'insérer l'ID de chaque produit dans le tableau 'products'.
+
+        request('POST', 'https://oc-p5-api.herokuapp.com/api/cameras/order', orderForm).then(function (resultOrder) {
+
+            const finalOrder = JSON.stringify(resultOrder); // On transforme cet objet en chaine de caractère
+            localStorage.setItem('myOrder', finalOrder);
+
+            window.location.href = '../html/confirmation.html';
+        });
+
     });
 
-});
-
-
+})();
 
 
 
