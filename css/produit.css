@@ -118,6 +118,12 @@
         font-size: 22px;
     }
 
+    #erreur{
+        text-align: center;
+        font-size: 22px;
+        color: rgb(187, 17, 17);
+    }
+
     /* FOOTER */
 
     footer{ 

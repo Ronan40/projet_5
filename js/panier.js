@@ -9,7 +9,7 @@ const adresse = document.getElementById('address');
 const email = document.getElementById('email');
 const submit = document.getElementById('submit');
 
-let totaux = 0 
+let totaux = 0
 
 orderParse.forEach(function (order) {
 
@@ -57,7 +57,6 @@ orderParse.forEach(function (order) {
     $tdTotal.innerText = totalPrice + ' €';
 
     totaux += totalPrice;
-    
 
     $trContain.appendChild($tdProd);
     $trContain.appendChild($tdForm);
@@ -92,9 +91,9 @@ orderParse.forEach(function (order) {
         totaux -= totalPrice;
 
         $subTotal.innerText = 'Total : ' + totaux + ' €';
-        
+
     });
-    
+
 });
 
 const py2 = document.getElementById('py-2');
@@ -106,7 +105,7 @@ py2.appendChild($subTotal);
 
 document.getElementById('formu').addEventListener('submit', function (e) {
 
-   // Cet event est appliqué au bouton 'submit' qui enverra les informations de la commande.
+    // Cet event est appliqué au bouton 'submit' qui enverra les informations de la commande.
 
     e.preventDefault();
 

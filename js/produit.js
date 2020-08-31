@@ -49,8 +49,9 @@ request('GET', 'https://oc-p5-api.herokuapp.com/api/cameras/' + ident, null).the
     $quantiLab.className = "quanti"
 
     const $quantInput = document.createElement('input');
-    $quantInput.type = "quantibut";
+    $quantInput.type = "number";
     $quantInput.placeholder = "1";
+    $quantInput.required = true;
     $quantInput.style.fontFamily = 'Kaushan Script';
     $quantInput.className = "form-control quantity";
 
@@ -82,8 +83,11 @@ request('GET', 'https://oc-p5-api.herokuapp.com/api/cameras/' + ident, null).the
         $lenses.appendChild($option);
     });
 
+    const $erreur = document.createElement('p')
+
     $mainDiv.appendChild($colDiv);
     $mainDiv.appendChild($colDiv2);
+    $mainDiv.appendChild($erreur);
 
     $colDiv.appendChild($imgDiv);
     $imgDiv.appendChild($imgProduct);
@@ -109,11 +113,24 @@ request('GET', 'https://oc-p5-api.herokuapp.com/api/cameras/' + ident, null).the
 
     document.getElementById('panel').appendChild($mainDiv)
 
+
     $buttonProd.addEventListener('click', function () {
 
         // Un addEventListener est attribué au bouton "panier".
 
         // Un tableau d'objet est créé afin de pouvoir stocker seulement les détails de chaque produit voulus.
+        var erreur;
+
+        if ($quantInput.value < 1) {
+            erreur = 'Veuillez renseigner le champ "quantité" !';
+        };
+
+        if (erreur) {
+            document.getElementById("erreur").innerHTML = erreur;
+            return false;
+        } else {
+
+        };
 
         const order = {
             price: camera.price,
@@ -142,6 +159,13 @@ request('GET', 'https://oc-p5-api.herokuapp.com/api/cameras/' + ident, null).the
         localStorage.setItem('openclassroomsp5_newOrder', stringOrder);
 
         window.location.href = '../html/panier.html'; // Redirige vers la page panier.
+
+        if (confirm('Veuillez confirmer votre sélection ?')) {
+            window.location.href = '../html/panier.html';
+        } else {
+            window.location.href = '../html/produit.html';
+            localStorage.removeItem('openclassroomsp5_newOrder')
+        };
     });
 
 });
