@@ -35,7 +35,7 @@
 
         const $input = document.createElement('input');
         $input.className = "form-control";
-        $input.type = 'text';
+        $input.type = 'number';
         $input.style.fontFamily = 'Kaushan Script';
         $input.value = order.quantity;
 
