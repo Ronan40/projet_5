@@ -5,7 +5,7 @@
     const ident = localStorage.getItem("openclassroomsp5_camId") // On récupere l'ID stocker dans le local storage.
 
 
-    request('GET', 'https://oc-p5-api.herokuapp.com/api/cameras/' + ident, null).then(function (camera) {
+    request('GET', '​http://localhost:3000/api/cameras/' + ident, null).then(function (camera) {
 
         // On crée des éléments HTML afin de pouvoir positioner le produit sur la page détail.
 

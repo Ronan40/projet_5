@@ -111,6 +111,11 @@
 
         // Cet event est appliqué au bouton 'submit' qui enverra les informations de la commande.
 
+        if (orderParse.length === 0) {
+            alert('Votre panier est vide');
+            return
+        }
+
         e.preventDefault();
 
         var erreur;
@@ -121,15 +126,14 @@
             if (inputs[i].value.trim().length === 0) {
                 erreur = "Veuillez renseigner tous les champs";
                 break;
-            };
+            }
         }
+
 
         if (erreur) {
             document.getElementById("erreur").innerHTML = erreur;
-            return false;
-        } else {
-
-        };
+            return;
+        }
 
         const orderForm = {
             contact: {
@@ -148,7 +152,7 @@
             }
         }); // un For est imbriqué dans un forEach afin d'insérer l'ID de chaque produit dans le tableau 'products'.
 
-        request('POST', 'https://oc-p5-api.herokuapp.com/api/cameras/order', orderForm).then(function (resultOrder) {
+        request('POST', '​http://localhost:3000/api/cameras/order', orderForm).then(function (resultOrder) {
 
             const finalOrder = JSON.stringify(resultOrder); // On transforme cet objet en chaine de caractère
             localStorage.setItem('myOrder', finalOrder);
