@@ -12,13 +12,14 @@ function request(reqtype, url, toSend) {
         xhr.send(jsonToSend);
         xhr.addEventListener('load', () => {
 
-            const parseResult = JSON.parse(xhr.response);
+            const parseResult = JSON.parse(xhr.response)
+            
+            resolve(parseResult)
 
-            resolve(parseResult);
-
+            console.log(parseResult)
         });
 
-    })
+    });
 
-}
+};
 

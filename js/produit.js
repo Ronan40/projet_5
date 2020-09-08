@@ -5,8 +5,7 @@
     const ident = localStorage.getItem("openclassroomsp5_camId") // On récupere l'ID stocker dans le local storage.
 
 
-    request('GET', '​http://localhost:3000/api/cameras/' + ident, null).then(function (camera) {
-
+    request('GET', 'http://localhost:3000/api/cameras/' + ident, null).then(function (camera) {
         // On crée des éléments HTML afin de pouvoir positioner le produit sur la page détail.
 
         const $mainDiv = document.createElement('div');
@@ -168,15 +167,19 @@
 
             // Ce "if-else" demande confirmation à l'utilisateur sur sa commande
 
-            if (confirm('Veuillez confirmer votre sélection ?')) {
+            if (confirm('Veuillez confirmer votre sélection')) {
                 window.location.href = '../html/panier.html';
             } else {
                 window.location.href = '../html/produit.html';
                 localStorage.removeItem('openclassroomsp5_newOrder')
             };
+
         });
 
+
     });
+
+
 
 })();
 
