@@ -59,7 +59,7 @@
     const $cardPrice = document.createElement('h5');
     $cardPrice.className = "card-price";
     $cardPrice.style.fontFamily = 'VintageOne';
-    $cardPrice.innerText = cam.price/100 + ' €';
+    $cardPrice.innerText = cam.price / 100 + ' €';
 
     const $cardText = document.createElement('p');
     $cardText.className = "card-text";
@@ -80,8 +80,6 @@
 
     $cardSubcontainer.addEventListener('click', function () {
 
-       //cam._id);
-     
       window.location.href = '../html/produit.html?id=' + cam._id;
 
     });

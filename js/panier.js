@@ -1,5 +1,5 @@
 (() => {
-
+    
     "use strict";
 
     const orderJson = localStorage.getItem('openclassroomsp5_newOrder'); // On récupere les éléments stockés
@@ -47,13 +47,13 @@
 
         const $tdPrice = document.createElement('td');
         $tdPrice.id = 'td-price';
-        $tdPrice.innerText = order.price/100 + ' €';
+        $tdPrice.innerText = order.price / 100 + ' €';
         $tdPrice.style.fontFamily = 'VintageOne';
         $tdPrice.style.fontSize = '20px';
 
         const $tdTotal = document.createElement('td');
 
-        const totalPrice = order.price * order.quantity/100;
+        const totalPrice = order.price * order.quantity / 100;
         $tdTotal.id = 'td-total';
         $tdTotal.style.fontFamily = 'VintageOne';
         $tdTotal.style.fontSize = '20px';
@@ -128,7 +128,6 @@
                 break;
             }
         }
-
 
         if (erreur) {
             document.getElementById("erreur").innerHTML = erreur;

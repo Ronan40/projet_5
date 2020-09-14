@@ -13,7 +13,7 @@ function request(reqtype, url, toSend) {
         xhr.addEventListener('load', () => {
 
             const parseResult = JSON.parse(xhr.response)
-            
+
             resolve(parseResult)
 
             console.log(parseResult)

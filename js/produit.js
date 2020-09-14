@@ -4,7 +4,6 @@
 
     const ident = new URL(window.location.href).searchParams.get('id');
 
-
     request('GET', 'http://localhost:3000/api/cameras/' + ident, null).then(function (camera) {
         // On crée des éléments HTML afin de pouvoir positioner le produit sur la page détail.
 
@@ -115,7 +114,6 @@
 
         document.getElementById('panel').appendChild($mainDiv)
 
-
         $buttonProd.addEventListener('click', function (e) {
 
             // Un addEventListener est attribué au bouton "panier".
@@ -176,12 +174,7 @@
             window.location.href = '../html/panier.html'; // Redirige vers la page panier.
 
         });
-
-
-
     });
-
-
 
     document.getElementById('panier').addEventListener('click', function (e) {
         if (localStorage.length < 1) {

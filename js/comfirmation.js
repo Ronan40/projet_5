@@ -3,7 +3,6 @@
     "use strict";
 
     let myOrder = JSON.parse(localStorage.getItem('myOrder'));
-    
 
     // Une constante est créée afin de récupérer les informations dans le local storage et les parse.
 
