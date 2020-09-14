@@ -89,7 +89,7 @@
   };
 
   document.getElementById('panier').addEventListener('click', function (e) {
-    if (localStorage.length < 2) {
+    if (localStorage.length < 1) {
       e.preventDefault();
       alert('Votre panier est vide...\n\nVeuillez choisir un article !');
     }

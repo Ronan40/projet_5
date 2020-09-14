@@ -2,7 +2,7 @@
 
     "use strict";
 
-    const ident =  new URL(window.location.href).searchParams.get('id');
+    const ident = new URL(window.location.href).searchParams.get('id');
 
 
     request('GET', 'http://localhost:3000/api/cameras/' + ident, null).then(function (camera) {
@@ -40,7 +40,7 @@
         const $priceSpan = document.createElement('span');
         $priceSpan.className = "pro-price";
         $priceSpan.style.fontFamily = 'VintageOne';
-        $priceSpan.innerText = "Prix : " + camera.price/100 + " €";
+        $priceSpan.innerText = "Prix : " + camera.price / 100 + " €";
 
         const $quantiDiv = document.createElement('div');
         $quantiDiv.className = "form-group";
@@ -116,7 +116,7 @@
         document.getElementById('panel').appendChild($mainDiv)
 
 
-        $buttonProd.addEventListener('click', function () {
+        $buttonProd.addEventListener('click', function (e) {
 
             // Un addEventListener est attribué au bouton "panier".
 
@@ -133,6 +133,16 @@
                 document.getElementById("erreur").innerHTML = erreur;
                 return false;
             } else {
+
+            };
+
+            // Ce "if-else" demande confirmation à l'utilisateur sur sa commande
+
+            if (confirm('Veuillez confirmer votre sélection !')) {
+                window.location.href = '../html/panier.html';
+            } else {
+                localStorage.removeItem();
+                window.location.href = '../html/produit.html';
 
             };
 
@@ -165,21 +175,16 @@
 
             window.location.href = '../html/panier.html'; // Redirige vers la page panier.
 
-            // Ce "if-else" demande confirmation à l'utilisateur sur sa commande
-
-            if (confirm('Veuillez confirmer votre sélection !')) {
-                window.location.href = '../html/panier.html';
-            } else {
-                window.location.href = '../html/produit.html';
-                localStorage.removeItem('openclassroomsp5_newOrder')
-            };
-
         });
+
+
 
     });
 
+
+
     document.getElementById('panier').addEventListener('click', function (e) {
-        if (localStorage.length < 2) {
+        if (localStorage.length < 1) {
             e.preventDefault();
             alert('Votre panier est vide...\n\nVeuillez choisir un article !');
         }
