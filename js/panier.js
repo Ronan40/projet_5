@@ -47,13 +47,13 @@
 
         const $tdPrice = document.createElement('td');
         $tdPrice.id = 'td-price';
-        $tdPrice.innerText = order.price + ' €';
+        $tdPrice.innerText = order.price/100 + ' €';
         $tdPrice.style.fontFamily = 'VintageOne';
         $tdPrice.style.fontSize = '20px';
 
         const $tdTotal = document.createElement('td');
 
-        const totalPrice = order.price * order.quantity;
+        const totalPrice = order.price * order.quantity/100;
         $tdTotal.id = 'td-total';
         $tdTotal.style.fontFamily = 'VintageOne';
         $tdTotal.style.fontSize = '20px';
@@ -141,7 +141,8 @@
                 lastName: nom.value,
                 address: adresse.value,
                 city: ville.value,
-                email: email.value
+                email: email.value,
+                prix: $subTotal.innerText
             },
             products: [],
         }; // On stock dans un objet les informations recueillies dans le formulaire.
@@ -163,7 +164,5 @@
     });
 
 })();
-
-
 
 

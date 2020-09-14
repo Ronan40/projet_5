@@ -42,8 +42,20 @@
    
     #identif{
         text-align: center;
-        font-size: 22px;
+        font-size: 28px;
         padding-bottom: 80px;
+    }
+
+    #price-para{
+        text-align: center;
+        font-size: 30px;
+        padding-bottom: 20px;
+    }
+
+    #price-total{
+        text-align: center;
+        font-size: 30px;
+        padding-bottom: 20px;
     }
 
     #div-but{

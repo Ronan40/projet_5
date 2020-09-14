@@ -2,7 +2,7 @@
 
     "use strict";
 
-    const ident = localStorage.getItem("openclassroomsp5_camId") // On récupere l'ID stocker dans le local storage.
+    const ident =  new URL(window.location.href).searchParams.get('id');
 
 
     request('GET', 'http://localhost:3000/api/cameras/' + ident, null).then(function (camera) {
@@ -40,7 +40,7 @@
         const $priceSpan = document.createElement('span');
         $priceSpan.className = "pro-price";
         $priceSpan.style.fontFamily = 'VintageOne';
-        $priceSpan.innerText = "Prix : " + camera.price + " €";
+        $priceSpan.innerText = "Prix : " + camera.price/100 + " €";
 
         const $quantiDiv = document.createElement('div');
         $quantiDiv.className = "form-group";
@@ -167,7 +167,7 @@
 
             // Ce "if-else" demande confirmation à l'utilisateur sur sa commande
 
-            if (confirm('Veuillez confirmer votre sélection')) {
+            if (confirm('Veuillez confirmer votre sélection !')) {
                 window.location.href = '../html/panier.html';
             } else {
                 window.location.href = '../html/produit.html';
@@ -176,8 +176,14 @@
 
         });
 
-
     });
+
+    document.getElementById('panier').addEventListener('click', function (e) {
+        if (localStorage.length < 2) {
+            e.preventDefault();
+            alert('Votre panier est vide...\n\nVeuillez choisir un article !');
+        }
+    })
 
 })();
 

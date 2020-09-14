@@ -59,7 +59,7 @@
     const $cardPrice = document.createElement('h5');
     $cardPrice.className = "card-price";
     $cardPrice.style.fontFamily = 'VintageOne';
-    $cardPrice.innerText = cam.price + ' €';
+    $cardPrice.innerText = cam.price/100 + ' €';
 
     const $cardText = document.createElement('p');
     $cardText.className = "card-text";
@@ -80,12 +80,19 @@
 
     $cardSubcontainer.addEventListener('click', function () {
 
-      localStorage.setItem("openclassroomsp5_camId", cam._id);
-
-      window.location.href = '../html/produit.html';
+       //cam._id);
+     
+      window.location.href = '../html/produit.html?id=' + cam._id;
 
     });
 
   };
-  
+
+  document.getElementById('panier').addEventListener('click', function (e) {
+    if (localStorage.length < 2) {
+      e.preventDefault();
+      alert('Votre panier est vide...\n\nVeuillez choisir un article !');
+    }
+  })
+
 })();
